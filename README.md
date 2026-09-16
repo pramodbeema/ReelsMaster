@@ -44,7 +44,7 @@ Press **'0'** to restart the current Short from the beginning (`0:00`), matching
 
 ## 📥 Installation
 ### Chrome Web Store
-[**Install Fix YT Shorts from the Chrome Web Store**](https://chromewebstore.google.com/detail/fix-yt-shorts-by-pramod-b/kcnepcpcdokdicblglohbfnokiddgjla)
+[**Install Fix YT Shorts from the Chrome Web Store**](https://chromewebstore.google.com/detail/fix-yt-shorts-by-pramod-b/idpdcafoocepoaphmgbkkjadlddpoamc)
 ### Manual installation:
 1. Download or clone this repository
 2. Open Chrome/Edge/Brave/Opera → `chrome://extensions/`

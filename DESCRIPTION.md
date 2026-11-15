@@ -6,6 +6,10 @@ YouTube Shorts provides a fast way to watch short-form videos, but some useful c
 
 ## ✨ Features
 
+### ⏯️ Space Bar Play/Pause
+
+Press **`Space`** (or **`K`**) to toggle pause and play on YouTube Shorts — exactly like regular YouTube videos. It prevents browser page scrolling and blocks unintended clicks on focused buttons.
+
 ### 🔁 Hands-Free Auto-Scroll
 
 Enable **Auto-Scroll** directly from the Shorts player. When a Short finishes, the extension automatically moves to the next one — perfect for hands-free viewing.
@@ -66,6 +70,7 @@ No need to drag the progress bar back to the beginning.
 
 | Shortcut           | Action                             |
 | ------------------ | ---------------------------------- |
+| `Space` / `K`      | Play / Pause Short                 |
 | `>` / `<`          | Increase / decrease playback speed |
 | `A`                | Open / cycle audio tracks          |
 | `C`                | Toggle / cycle captions            |

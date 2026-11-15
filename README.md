@@ -1,36 +1,40 @@
-# Fix YT Shorts (v1.6)
+# Fix YT Shorts (v1.7)
 
-**A powerful Chrome extension to fix and enhance the YouTube Shorts experience with 7 essential features: hands-free auto-scroll, playback speed controls, audio navigation, seeking controls, caption toggle, restart from beginning, and video conversion.**
+**A powerful Chrome extension to fix and enhance the YouTube Shorts experience with essential features: spacebar play/pause, hands-free auto-scroll, playback speed controls, audio navigation, seeking controls, caption toggle, restart from beginning, and video conversion.**
 
 Created by **Pramod Beema**
 
-## 🎯 7 Essential Features
+## 🎯 Essential Features
 
-### 1. 🔁 Hands-Free Auto-Scroll
-Click the on-screen **Auto** button in YouTube Shorts to automatically scroll to the next Short when the current one finishes. If toggled mid-video, it smoothly transitions to the next Short.
+### 1. ⏯️ Space Bar Play/Pause
+Press **Space** (or **'k'**) to pause and play YouTube Shorts just like regular YouTube videos. It safely suppresses browser page scrolling and prevents accidental clicks on focused buttons.
 
-### 2. ⚡ Playback Speed Controls
+### 2. 🔁 Hands-Free Auto-Scroll
+Click the on-screen **Auto** button in YouTube Shorts to automatically scroll to the next Short when the current one finishes. When toggled mid-video, it lets the active Short finish its full duration before smoothly advancing.
+
+### 3. ⚡ Playback Speed Controls
 Adjust playback speed using **>** (speed up) and **<** (slow down) from 0.25x up to 2.0x with on-screen speed feedback.
 
-### 3. 🎧 Audio Track Navigator
+### 4. 🎧 Audio Track Navigator
 Press **'a'** to instantly open the audio track selection menu with **full keyboard navigation** (`↑` / `↓` + `Enter`, number keys `1`–`9`, or press **'a'** again to cycle through tracks). Arrow navigation is strictly isolated so it will never scroll your Short!
 
-### 4. ⏩ Shorts Seeker (Customizable Duration)
+### 5. ⏩ Shorts Seeker (Customizable Duration)
 Use **arrow keys** (← →) to seek in YouTube Shorts with native-style visual feedback. Set your desired seek duration in seconds directly in the extension popup (slider or 2s, 5s, 10s, 15s quick chips).
 
-### 5. 🔄 Shorts to Video Converter
+### 6. 🔄 Shorts to Video Converter
 Convert YouTube Shorts to regular video format with a click on the YouTube-native on-screen button or the **Ctrl+Shift+F** keyboard shortcut.
 
-### 6. 💬 Caption Toggle
+### 7. 💬 Caption Toggle
 Press **'c'** to toggle or select captions in YouTube Shorts with full keyboard support (`↑` / `↓` + `Enter` or press **'c'** again to cycle).
 
-### 7. ⏮️ Restart from Beginning
+### 8. ⏮️ Restart from Beginning
 Press **'0'** to restart the current Short from the beginning (`0:00`), matching YouTube's native behavior for regular videos.
 
 ## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
+| **Space** / **k** | Play / Pause Short (like YouTube video, no page scroll) |
 | **&gt;** / **&lt;** (or Shift + . / ,) | Speed Up / Slow Down playback (0.25x – 2.0x) |
 | **a** | Open audio track menu / cycle audio tracks |
 | **c** | Toggle / cycle Captions in Shorts |
@@ -52,6 +56,11 @@ Press **'0'** to restart the current Short from the beginning (`0:00`), matching
 4. Click **Load unpacked**
 5. Select this folder
 6. Done! 🎉
+
+## 🆕 What's New in v1.7
+- **Big-Brand Icon Redesign**: Clean edge-to-edge silhouette, 100% transparent background, and zero container padding/box, featuring YouTube Shorts' signature vibrant red ribbon and precision engineering gear & play mark.
+- **Space Bar Play/Pause**: Pressing Space (or 'k') pauses and plays the YouTube Short just like YouTube videos while blocking browser page scrolling and accidental button triggers.
+- **Seamless Hands-Free Auto-Scroll**: Fixed Auto Scroll so enabling it mid-video allows the active Short to finish its full duration before advancing, with single-trigger loop handling.
 
 ## 🆕 What's New in v1.6
 - **Hands-Free Auto-Scroll**: Dedicated on-screen toggle button above Convert button. Seamlessly moves to next video upon finish or immediately when enabled.

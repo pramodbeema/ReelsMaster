@@ -1,4 +1,5 @@
 Open YouTube and navigate to any Shorts video.
+• Play/Pause: Press Space (or K) to pause and play the Short.
 • Auto-Scroll: Click the Auto button and allow the Short to finish.
 • Speed: Press > / < to change playback speed.
 • Seek: Press ← / → to seek. The duration can be changed from the extension popup.

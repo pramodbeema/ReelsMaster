@@ -422,6 +422,7 @@
         const video = getActiveVideo();
         if (video) {
             video.currentTime = 0;
+            hasScrolledForCurrentVideo = false;
             if (video.paused) {
                 video.play().catch(() => {});
             }
@@ -562,6 +563,30 @@
     }
 
     // ========================================
+    // FEATURE 9: PLAY / PAUSE SHORT (SPACEBAR / 'K')
+    // ========================================
+    function togglePlayPauseShorts() {
+        if (!isShorts()) return;
+        const video = getActiveVideo();
+        if (!video) return;
+
+        if (video.paused) {
+            video.play().then(() => {
+                showCenterHUD('\u25B6 Play');
+            }).catch(() => {
+                const activeReel = getActiveReel();
+                const playBtn = activeReel ? activeReel.querySelector(
+                    '.ytp-play-button, button[aria-label*="Play" i], button[aria-label*="Pause" i]'
+                ) : null;
+                if (playBtn) playBtn.click();
+            });
+        } else {
+            video.pause();
+            showCenterHUD('\u23F8 Pause');
+        }
+    }
+
+    // ========================================
     // FEATURE 8: AUTO-SCROLL (HANDS-FREE MODE)
     // ========================================
     function scrollToNextShort() {
@@ -588,6 +613,15 @@
     }
 
     let lastVideoAttached = null;
+    let hasScrolledForCurrentVideo = false;
+    let lastTimeRecorded = 0;
+
+    function triggerAutoScrollNext() {
+        if (!isShorts() || !autoScrollEnabled || hasScrolledForCurrentVideo) return;
+        hasScrolledForCurrentVideo = true;
+        scrollToNextShort();
+    }
+
     function checkAutoScroll() {
         if (!isShorts()) return;
         const video = getActiveVideo();
@@ -595,14 +629,32 @@
 
         if (video !== lastVideoAttached) {
             lastVideoAttached = video;
-            // Attach end-of-video listener to scroll when enabled
+            hasScrolledForCurrentVideo = false;
+            lastTimeRecorded = video.currentTime || 0;
+
+            // Attach end-of-video listener to scroll when finished
             video.addEventListener('ended', () => {
-                if (autoScrollEnabled) scrollToNextShort();
+                if (autoScrollEnabled) triggerAutoScrollNext();
             });
+
+            // Monitor playback time to trigger right at completion without premature skipping
             video.addEventListener('timeupdate', () => {
-                if (autoScrollEnabled && video.duration > 1 && video.currentTime >= video.duration - 0.3) {
-                    scrollToNextShort();
+                if (!autoScrollEnabled || hasScrolledForCurrentVideo) {
+                    lastTimeRecorded = video.currentTime;
+                    return;
                 }
+                const duration = video.duration;
+                const currentTime = video.currentTime;
+                if (duration && isFinite(duration) && duration > 1) {
+                    // Trigger within final 0.25s of the Short duration
+                    if (currentTime >= duration - 0.25) {
+                        triggerAutoScrollNext();
+                    } else if (lastTimeRecorded > duration - 0.8 && currentTime < 0.5) {
+                        // Video looped back to beginning
+                        triggerAutoScrollNext();
+                    }
+                }
+                lastTimeRecorded = currentTime;
             });
         }
     }
@@ -778,9 +830,8 @@
                     localStorage.setItem('autoScroll', autoScrollEnabled ? 'true' : 'false');
                 }
                 if (autoScrollEnabled) {
-                    // Go to next short immediately — no need to replay from beginning
                     showCenterHUD('\uD83D\uDD01 Auto-Scroll ON');
-                    setTimeout(() => scrollToNextShort(), 500);
+                    // Does NOT prematurely skip current video — lets active Short complete its duration seamlessly
                 } else {
                     showCenterHUD('\u23F9 Auto-Scroll OFF');
                 }
@@ -984,6 +1035,15 @@
         // STANDARD SHORTCUTS (NORMAL PLAYBACK)
         // ----------------------------------------------------
 
+        // Feature 9: Play / Pause Toggle for Shorts (Spacebar and 'k' / 'K' key)
+        if (isShorts() && (e.code === 'Space' || e.key === ' ' || e.key.toLowerCase() === 'k') && !e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            togglePlayPauseShorts();
+            return;
+        }
+
         // Feature 1: Audio Track Navigator (press 'a' or Shift+'a')
         if (e.key.toLowerCase() === 'a' && !e.ctrlKey && !e.metaKey && !e.altKey) {
             e.preventDefault();
@@ -1095,6 +1155,7 @@
         const url = location.href;
         if (url !== lastUrl) {
             lastUrl = url;
+            hasScrolledForCurrentVideo = false;
             createConvertButton();
             createAutoScrollButton();
         }
@@ -1131,5 +1192,5 @@
 
     setInterval(createBothButtons, 500);
 
-    console.log('Fix YT Shorts by Pramod Beema - All features active (v1.6)!');
+    console.log('Fix YT Shorts by Pramod Beema - All features active (v1.7)!');
 })();

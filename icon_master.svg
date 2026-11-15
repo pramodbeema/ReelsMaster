@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF1E46"/>
+      <stop offset="40%" stop-color="#FF0033"/>
+      <stop offset="100%" stop-color="#D40024"/>
+    </linearGradient>
+  </defs>
+
+  <!-- YouTube Shorts Silhouette: 100% Edge-to-edge, NO background box, NO padding -->
+  <g transform="translate(256, 256) scale(23.2) translate(-12, -12)">
+    <path fill="url(#ytGrad)" d="m18.931 9.99-1.441-.601 1.717-.913a4.48 4.48 0 0 0 1.874-6.078 4.506 4.506 0 0 0-6.09-1.874L4.792 5.929a4.504 4.504 0 0 0-2.402 4.193 4.521 4.521 0 0 0 2.666 3.904c.036.012 1.442.6 1.442.6l-1.717.913a4.48 4.48 0 0 0-1.874 6.078 4.506 4.506 0 0 0 6.09 1.874l11.149-4.894a4.504 4.504 0 0 0 2.402-4.193 4.521 4.521 0 0 0-2.666-3.904z"/>
+  </g>
+
+  <!-- Central "Fix" Cog: Brilliant White Precision Gear Ring -->
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M 328.36 219.99 L 338.36 225.77 L 319.46 238.99 L 320.00 256.00 L 338.36 256.00 L 338.36 267.55 L 319.46 273.01 L 311.46 288.16 L 320.68 304.14 L 312.52 312.30 L 296.54 303.08 L 281.39 311.08 L 275.93 329.98 L 264.38 329.98 L 258.92 311.08 L 243.77 303.08 L 227.79 312.30 L 219.63 304.14 L 228.85 288.16 L 220.85 273.01 L 201.95 267.55 L 201.95 256.00 L 220.85 250.45 L 228.85 235.30 L 219.63 219.32 L 227.79 211.16 L 243.77 220.38 L 258.92 212.38 L 264.38 193.48 L 275.93 193.48 L 281.39 212.38 L 296.54 220.38 L 312.52 211.16 L 320.68 219.32 Z M 270 214 A 42 42 0 1 0 270 298 A 42 42 0 1 0 270 214 Z"/>
+
+  <!-- Central Play Triangle inside the Gear -->
+  <path fill="#FFFFFF" d="M 256 232 L 256 280 L 296 256 Z"/>
+</svg>

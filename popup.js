@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const seekInput = document.getElementById('seek-duration');
     const seekDisplay = document.getElementById('seek-duration-val');
     const quickBtns = document.querySelectorAll('.seek-chip');
+    const autoScrollToggle = document.getElementById('auto-scroll-toggle');
 
     // ── SEEK DURATION ──────────────────────────────────────────────────
     function updateValue(val) {
@@ -23,18 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
             chrome.storage.local.set({ seekDuration: num });
         } else {
-            localStorage.setItem('seekDuration', num);
+            localStorage.setItem('reels_master_seek', num);
         }
     }
 
-    // Load initial seek duration
+    // Load initial settings
     if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-        chrome.storage.local.get({ seekDuration: 5 }, (res) => {
-            updateValue(res.seekDuration || 5);
+        chrome.storage.local.get({ seekDuration: 5, autoScroll: false }, (res) => {
+            if (res) {
+                updateValue(res.seekDuration || 5);
+                if (autoScrollToggle) autoScrollToggle.checked = Boolean(res.autoScroll);
+            }
         });
     } else {
-        const stored = localStorage.getItem('seekDuration') || 5;
-        updateValue(stored);
+        const storedSeek = localStorage.getItem('reels_master_seek') || 5;
+        updateValue(storedSeek);
+        if (autoScrollToggle) {
+            autoScrollToggle.checked = localStorage.getItem('reels_master_auto_scroll') === 'true';
+        }
     }
 
     seekInput.addEventListener('input', (e) => {
@@ -47,4 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
             updateValue(val);
         });
     });
+
+    // ── AUTO-SCROLL TOGGLE ─────────────────────────────────────────────
+    if (autoScrollToggle) {
+        autoScrollToggle.addEventListener('change', (e) => {
+            const isChecked = e.target.checked;
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                chrome.storage.local.set({ autoScroll: isChecked });
+            } else {
+                localStorage.setItem('reels_master_auto_scroll', isChecked);
+            }
+        });
+    }
 });

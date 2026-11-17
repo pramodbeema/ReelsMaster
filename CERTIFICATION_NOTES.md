@@ -1,9 +1,14 @@
-Open YouTube and navigate to any Shorts video.
-• Play/Pause: Press Space (or K) to pause and play the Short.
-• Auto-Scroll: Click the Auto button and allow the Short to finish.
-• Speed: Press > / < to change playback speed.
-• Seek: Press ← / → to seek. The duration can be changed from the extension popup.
-• Restart: Press 0 to restart the Short.
-• Captions: Press C to open/toggle caption options.
-• Audio: Press A to open audio-track options. Use ↑ / ↓ and Enter/Space to select.
-• Convert: Press Ctrl+Shift+F (Cmd+Shift+F on Mac) or click the Convert button.
+# Reviewer Instructions for Reels Master (v2.0)
+
+Test on YouTube Shorts (https://www.youtube.com/shorts/), Instagram Reels (https://www.instagram.com/reels/), or Facebook Reels (https://www.facebook.com/reel/):
+
+• Play/Pause: Press Space (or K) to pause and play without page scrolling.
+• Auto-Scroll: Click the "Auto" button (positioned on the left of active Reels on Instagram & Facebook, and in the action sidebar for YouTube Shorts). When the video ends, it automatically advances to the next video.
+• Instagram Timeline Scrubber: Hover mouse over any Instagram Reel to see the progress bar; click or drag to seek using the mouse.
+• Speed: Press > / < (or Shift + . / ,) to change playback speed (0.25x to 2.0x).
+• Seek: Press ← / → to seek backward or forward. Seek duration (2s, 5s, 10s, 15s) can be changed in the popup.
+• Restart: Press 0 to jump back to 0:00.
+• Mute/Volume: Press M to mute/unmute. Press Shift + ↑ / ↓ to adjust volume.
+• Audio Tracks (YouTube): Press A to open audio-track options; navigate with ↑ / ↓ and Enter.
+• Captions: Press C to toggle captions.
+• Convert: Press Ctrl+Shift+F (Cmd+Shift+F on Mac) or click Convert to open standard video layout.

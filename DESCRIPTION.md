@@ -1,95 +1,73 @@
-# Fix YT Shorts by Pramod Beema
+# Reels Master by Pramod Beema
 
-🚀 **Take back control of YouTube Shorts.**
+🚀 **Take full control of YouTube Shorts, Instagram Reels, and Facebook Reels on your desktop.**
 
-YouTube Shorts provides a fast way to watch short-form videos, but some useful controls are missing. **Fix YT Shorts** adds practical controls that make Shorts easier to watch, navigate, and control — while keeping the experience close to YouTube's native interface.
+Short-form videos on YouTube, Instagram, and Facebook are built for mobile swiping, leaving desktop browser users without essential video player controls like spacebar play/pause, playback speed, timeline scrubbing, seeking, and hands-free watching.
 
-## ✨ Features
+**Reels Master** (v2.0) brings a full suite of desktop keyboard shortcuts, customizable seeking, speed controls, hands-free auto-scrolling, an interactive Instagram timeline scrubber, and on-screen controls directly to YouTube, Instagram, and Facebook — seamlessly integrated into modern dark interfaces.
 
-### ⏯️ Space Bar Play/Pause
+---
 
-Press **`Space`** (or **`K`**) to toggle pause and play on YouTube Shorts — exactly like regular YouTube videos. It prevents browser page scrolling and blocks unintended clicks on focused buttons.
+## ✨ Key Features
+
+### ⏯️ Space Bar Play/Pause (All 3 Platforms)
+Press **`Space`** (or **`K`**) to toggle pause and play on YouTube Shorts, Instagram Reels, and Facebook Reels — just like desktop video players. Safely prevents unwanted browser page scrolling and blocks unintended clicks on focused buttons.
 
 ### 🔁 Hands-Free Auto-Scroll
+Binge short-form videos effortlessly! Click the on-screen **`Auto`** button (positioned cleanly on the left side of Reels on Instagram and Facebook, and in the action sidebar for Shorts). When a video finishes, the extension automatically advances to the next one with smart loop detection for Meta's repeating video engine.
 
-Enable **Auto-Scroll** directly from the Shorts player. When a Short finishes, the extension automatically moves to the next one — perfect for hands-free viewing.
+### ⏱️ Interactive Instagram Timeline Scrubber
+Hover your mouse over any Instagram Reel to reveal an interactive time bar with a live progress bar, thumb handle, and timestamp (`0:14 / 0:48`). Click or drag anywhere along the track to seek using your mouse — especially useful when viewing Reels while logged out!
 
 ### ⚡ Playback Speed Controls
+Speed up or slow down any Short or Reel with centered on-screen HUD speed feedback:
+* **`>`** (or **`Shift + .`**) — Speed up playback (1.25x, 1.5x, 1.75x, 2.0x)
+* **`<`** (or **`Shift + ,`**) — Slow down playback (0.75x, 0.5x, 0.25x)
 
-Change Shorts playback speed using your keyboard.
+### ⏩ Customizable Seeking Controls
+Skip intro fluff or replay moments with arrow keys:
+* **`←` / `→`** — Seek backward or forward
+* Choose your preferred seek duration directly from the popup (slider from 1s to 30s, or quick chips: **2s, 5s, 10s, 15s**)
+* Visual HUD indicator displays exact seconds jumped directly on screen.
 
-**`>` / `<`** — Increase or decrease playback speed
-Supports **0.25× to 2×** playback speed with on-screen feedback.
+### ⏮️ Instant Restart from 0:00
+Press **`0`** to immediately restart the active video from the beginning without refreshing.
 
-### 🎧 Audio Track Navigator
+### 🔇 Volume & Mute Shortcuts
+* **`M`** — Instant mute / unmute toggle
+* **`Shift + ↑` / `Shift + ↓`** — Adjust volume by 10% increments with HUD percentage display
 
-Quickly access YouTube's audio track selection menu with:
+### 🎧 Audio Track Navigator (YouTube)
+Press **`A`** to open the audio track selection menu with full keyboard navigation (↑ / ↓ + Enter, number keys 1–9, or press 'a' again to cycle).
 
-**`A` (Not case sensitive)** — Open or cycle audio tracks
+### 💬 Captions Toggle
+Press **`C`** to toggle closed captions and subtitles on supported videos.
 
-When the menu is open, use **`↑` / `↓`**, **Enter/Space**, or **`1–9`** to navigate and select tracks.
+### 🔄 Convert to Regular Video
+Prefer YouTube's standard video player? Convert Shorts to regular format with the on-screen Convert button or **`Ctrl + Shift + F`** (Mac: **`Command + Shift + F`**).
 
-Works with supported YouTube videos and Shorts that provide multiple audio tracks.
+---
 
-### ⏩ Shorts Seeker
+## ⌨️ Universal Keyboard Shortcuts Reference
 
-Finally, seek through YouTube Shorts using your keyboard.
+| Shortcut | Action | Supported Sites |
+| :--- | :--- | :--- |
+| **Space** / **K** | Play / Pause video (blocks page scroll) | YouTube, Instagram, Facebook |
+| **&gt;** / **&lt;** (Shift + . / ,) | Speed Up / Slow Down playback (0.25x – 2.0x) | YouTube, Instagram, Facebook |
+| **←** / **→** | Seek backward / forward (custom seconds) | YouTube, Instagram, Facebook |
+| **Mouse Hover & Drag** | Interactive timeline scrubber bar | Instagram Reels |
+| **0** | Restart video from beginning (0:00) | YouTube, Instagram, Facebook |
+| **M** | Mute / Unmute active audio | YouTube, Instagram, Facebook |
+| **Shift + ↑** / **Shift + ↓** | Increase / Decrease volume | YouTube, Instagram, Facebook |
+| **C** | Toggle Captions | YouTube, Instagram, Facebook |
+| **A** | Audio track menu / cycle | YouTube Shorts |
+| **Ctrl + Shift + F** | Convert to standard video format | YouTube, Instagram, Facebook |
 
-**`←` / `→`** — Seek backward or forward
+---
 
-Choose your preferred seek duration from the extension popup. Select from **1–30 seconds**, with quick options for **2s, 5s, 10s, and 15s**.
+## 🔒 Privacy & Safety
+* **Zero Data Collection**: No analytics, tracking, telemetry, or external server calls.
+* **100% Offline & Local**: All preferences are saved in your local browser storage.
+* **Manifest V3 Compliant**: Built strictly following modern Chrome Web Store security standards.
 
-A visual indicator shows the seek action directly on the player.
-
-### 🔄 Convert Shorts to Regular Video
-
-Prefer YouTube's standard video player?
-
-Convert a Short to its regular YouTube video format with the on-screen **Convert** button or:
-
-**Windows/Linux:** `Ctrl + Shift + F`
-**Mac:** `Command + Shift + F`
-
-### 💬 Caption Controls
-
-Control captions on Shorts using your keyboard.
-
-**`C` (Not case sensitive)** — Toggle or navigate caption options
-
-Caption menus support keyboard navigation with **`↑` / `↓`**, **Enter/Space**, and **`1–9`**.
-
-### ⏮️ Restart Short
-
-Press:
-
-**`0`** — Restart the current Short from `0:00`
-
-No need to drag the progress bar back to the beginning.
-
-## ⌨️ Keyboard Shortcuts
-
-| Shortcut           | Action                             |
-| ------------------ | ---------------------------------- |
-| `Space` / `K`      | Play / Pause Short                 |
-| `>` / `<`          | Increase / decrease playback speed |
-| `A`                | Open / cycle audio tracks          |
-| `C`                | Toggle / cycle captions            |
-| `0`                | Restart Short                      |
-| `←` / `→`          | Seek by your configured duration   |
-| `Ctrl + Shift + F` | Convert Short to regular video     |
-| `↑` / `↓`          | Navigate open menus                |
-| `Enter` / `Space`  | Select menu item                   |
-| `1–9`              | Select menu item directly          |
-| `Escape`           | Close an open menu                 |
-
-## 🔒 Privacy
-
-**Fix YT Shorts does not collect, transmit, or sell personal data.**
-
-Your preferences, such as seek duration, are stored locally in your browser. The extension does not use analytics or remotely loaded code.
-
-The extension works directly with the YouTube website to provide its controls.
-
-**Open source:** You can inspect the source code on GitHub.
-
-Developed by **Pramod Beema**.
+Created by **Pramod Beema**

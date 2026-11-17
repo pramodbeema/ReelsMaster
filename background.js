@@ -1,21 +1,47 @@
-// Fix YT Shorts - Background Service Worker
+// Reels Master - Background Service Worker
 // Created by: Pramod Beema (https://github.com/pramodbeema)
 
-// Open welcome page on install
+// Open welcome onboarding page on install or update
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install' || details.reason === 'update') {
     chrome.tabs.create({ url: 'welcome.html' });
   }
 });
 
-// Listen for the keyboard command
+// Listen for universal convert shortcut (Ctrl+Shift+F / Command+Shift+F)
 chrome.commands.onCommand.addListener((command) => {
-  if (command === 'convert-short') {
+  if (command === 'convert-video' || command === 'convert-short') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (tabs[0] && tabs[0].url && tabs[0].url.includes('/shorts/')) {
-        const videoId = tabs[0].url.split('/shorts/')[1].split('?')[0];
+      const activeTab = tabs && tabs[0];
+      if (!activeTab || !activeTab.url) return;
+      const url = activeTab.url;
+
+      // 1. YouTube Shorts -> Regular Video
+      if (url.includes('youtube.com') && url.includes('/shorts/')) {
+        const videoId = url.split('/shorts/')[1].split(/[?&]/)[0];
         const newUrl = `https://www.youtube.com/watch?v=${videoId}`;
-        chrome.tabs.update(tabs[0].id, { url: newUrl });
+        chrome.tabs.update(activeTab.id, { url: newUrl });
+        return;
+      }
+
+      // 2. Instagram Reels -> Classic Post
+      if (url.includes('instagram.com')) {
+        const reelMatch = url.match(/\/reel(?:s)?\/([a-zA-Z0-9_-]+)/);
+        if (reelMatch && reelMatch[1]) {
+          const newUrl = `https://www.instagram.com/p/${reelMatch[1]}/`;
+          chrome.tabs.update(activeTab.id, { url: newUrl });
+          return;
+        }
+      }
+
+      // 3. Facebook Reels -> Standard Watch Video
+      if (url.includes('facebook.com')) {
+        const fbMatch = url.match(/\/reel\/([0-9a-zA-Z_-]+)/);
+        if (fbMatch && fbMatch[1]) {
+          const newUrl = `https://www.facebook.com/watch/?v=${fbMatch[1]}`;
+          chrome.tabs.update(activeTab.id, { url: newUrl });
+          return;
+        }
       }
     });
   }

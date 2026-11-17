@@ -1,18 +1,20 @@
-# Privacy Policy for Fix YT Shorts
+# Privacy Policy for Reels Master
 
-**Last Updated:** September 8, 2026
+**Last Updated:** November 17, 2026
 
-## 1. Data Collection
-**Fix YT Shorts** (the "Extension") does **not** collect, store, share, or transmit any personal user data.
+## 1. Single Purpose & Data Collection
+**Reels Master** (the "Extension") is built with a single purpose: to improve the video viewing experience on YouTube Shorts, Instagram Reels, and Facebook Reels through keyboard shortcuts, playback speed controls, hands-free auto-scrolling, timeline scrubbing, seeking, and conversion to standard video views.
 
-## 2. Permissions Usage
-The Extension requires the following permissions:
-* **`activeTab`**: Allows the extension to interact with the currently active tab when required by Chrome extension functionality.
-* **`storage`**: Used to store user preferences locally, such as the selected Shorts seek duration and Auto-Scroll preference.
-* **`https://www.youtube.com/*`**: Required for the content script to operate on YouTube pages and provide the extension's controls, including seeking, playback speed, audio tracks, captions, Auto-Scroll, restart, and Shorts-to-video conversion.
+The Extension does **not** collect, store, sell, monitor, profile, share, or transmit any personal user data, browsing history, or identifiers to external servers or third parties.
 
-## 3. Remote Code
-The Extension does not load or execute remote JavaScript, scripts, or executable code. It does not use analytics or external servers to process user data.
+## 2. Permissions Justification
+The Extension requests only minimum essential permissions:
+* **`activeTab`**: Allows the extension to interact with the currently active tab when required by shortcut commands (such as converting videos).
+* **`storage`**: Used exclusively to store user preferences locally in the browser (such as preferred seek duration and auto-scroll default toggle).
+* **`https://www.youtube.com/*`**, **`*://*.instagram.com/*`**, **`*://*.facebook.com/*`**: Required for the content script to operate on YouTube, Instagram, and Facebook pages to provide playback controls, timeline scrubbing, seek overlays, and on-screen buttons.
 
-## 4. Contact
+## 3. Remote Code Compliance
+The Extension does not load, run, or inject any external scripts, analytics, or remote executable code. All scripts and stylesheets are bundled entirely inside the extension package, strictly adhering to Chrome Web Store Manifest V3 guidelines.
+
+## 4. Contact & Support
 For questions or support, please contact **[bp.beema@gmail.com](mailto:bp.beema@gmail.com)**.

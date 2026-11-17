@@ -1,109 +1,100 @@
-# Fix YT Shorts (v1.7.1)
+# Reels Master (v2.0)
 
-**A powerful Chrome extension to fix and enhance the YouTube Shorts experience with essential features: spacebar play/pause, hands-free auto-scroll, playback speed controls, audio navigation, seeking controls, caption toggle, restart from beginning, and video conversion.**
+**The all-in-one desktop extension for YouTube Shorts, Instagram Reels, and Facebook Reels. Control video playback with essential shortcuts: spacebar play/pause, hands-free auto-scroll, interactive Instagram timeline scrubber, playback speed controls, customizable seeking, audio navigation, captions, and video conversion.**
 
 Created by **Pramod Beema**
 
-## 🎯 Essential Features
+---
 
-### 1. ⏯️ Space Bar Play/Pause
-Press **Space** (or **'k'**) to pause and play YouTube Shorts just like regular YouTube videos. It safely suppresses browser page scrolling and prevents accidental clicks on focused buttons.
+## 🎯 Universal Features
 
-### 2. 🔁 Hands-Free Auto-Scroll
-Click the on-screen **Auto** button in YouTube Shorts to automatically scroll to the next Short when the current one finishes. When toggled mid-video, it lets the active Short finish its full duration before smoothly advancing.
+### 1. ⏯️ Space Bar Play/Pause (All 3 Platforms)
+Press **Space** (or **'k'**) to pause and play YouTube Shorts, Instagram Reels, and Facebook Reels just like standard desktop video players. Safely suppresses unwanted browser page scrolling and blocks accidental button clicks.
 
-### 3. ⚡ Playback Speed Controls
-Adjust playback speed using **>** (speed up) and **<** (slow down) from 0.25x up to 2.0x with on-screen speed feedback.
+### 2. 🔁 Hands-Free Auto-Scroll (All 3 Platforms)
+- **Instagram & Facebook**: A clean on-screen **Auto** button is positioned on the **left side of the video being played**. When the current Reel finishes, it automatically advances to the next Reel without requiring any mouse clicks.
+- **YouTube Shorts**: Auto button integrated natively in the action sidebar above Convert.
+- Includes smart video loop detection for Meta's repeating video playback engine.
 
-### 4. 🎧 Audio Track Navigator
-Press **'a'** to instantly open the audio track selection menu with **full keyboard navigation** (`↑` / `↓` + `Enter`, number keys `1`–`9`, or press **'a'** again to cycle through tracks). Arrow navigation is strictly isolated so it will never scroll your Short!
+### 3. ⏱️ Interactive Instagram Timeline Scrubber (Native Single Bottom Line)
+Hover your mouse over any Instagram Reel to reveal an interactive single-line seek bar right at the bottom edge of the player (matching YouTube & Facebook native designs). Features a live played gradient fill, draggable white circle handle, and floating time preview (`0:14 / 0:48`). Click or drag anywhere along the line to scrub smoothly with your mouse — especially useful when viewing Reels while logged out!
 
-### 5. ⏩ Shorts Seeker (Customizable Duration)
-Use **arrow keys** (← →) to seek in YouTube Shorts with native-style visual feedback. Set your desired seek duration in seconds directly in the extension popup (slider or 2s, 5s, 10s, 15s quick chips).
+### 4. ⚡ Playback Speed Controls (All 3 Platforms)
+Adjust playback speed using **>** (speed up) and **<** (slow down) (or Shift + . / ,) from 0.25x up to 2.0x with centered on-screen HUD speed feedback.
 
-### 6. 🔄 Shorts to Video Converter
-Convert YouTube Shorts to regular video format with a click on the YouTube-native on-screen button or the **Ctrl+Shift+F** keyboard shortcut.
+### 5. ⏩ Customizable Seeker (All 3 Platforms)
+Use **arrow keys** (← →) to seek with visual feedback. Set your desired seek duration in seconds directly in the extension popup (slider from 1s to 30s, or 2s, 5s, 10s, 15s quick chips).
 
-### 7. 💬 Caption Toggle
-Press **'c'** to toggle or select captions in YouTube Shorts with full keyboard support (`↑` / `↓` + `Enter` or press **'c'** again to cycle).
+### 6. ⏮️ Restart from Beginning (All 3 Platforms)
+Press **'0'** to restart the current video from the beginning (`0:00`).
 
-### 8. ⏮️ Restart from Beginning
-Press **'0'** to restart the current Short from the beginning (`0:00`), matching YouTube's native behavior for regular videos.
+### 7. 🔇 Volume & Mute Controls (All 3 Platforms)
+Press **'m'** to quickly toggle audio mute/unmute, and use **Shift + ↑ / ↓** to adjust volume smoothly with on-screen percentage feedback.
 
-## ⌨️ Keyboard Shortcuts
+### 8. 🎧 Audio Track Navigator (YouTube)
+Press **'a'** to open the audio track selection menu with full keyboard navigation (↑/↓ + Enter, number keys 1–9, or press 'a' again to cycle).
 
-| Shortcut | Action |
-|----------|--------|
-| **Space** / **k** | Play / Pause Short (like YouTube video, no page scroll) |
-| **&gt;** / **&lt;** (or Shift + . / ,) | Speed Up / Slow Down playback (0.25x – 2.0x) |
-| **a** | Open audio track menu / cycle audio tracks |
-| **c** | Toggle / cycle Captions in Shorts |
-| **0** | Restart Short from beginning (`0:00`) |
-| **← →** | Seek in Shorts (custom duration from settings) |
-| **Ctrl+Shift+F** | Convert Short to regular video |
-| **↑ ↓** | Navigate menu items when Audio/Captions menu is open |
-| **Enter** / **Space** | Select focused menu item |
-| **1 – 9** | Directly select track / caption item by index |
-| **Escape** | Dismiss menu without changing |
+### 9. 💬 Caption Toggle (YouTube & Reels)
+Press **'c'** to toggle closed captions and subtitles.
+
+### 10. 🔄 Video Converter (YouTube Shorts & Reels)
+Convert YouTube Shorts to regular video format with the on-screen Convert button or the **Ctrl+Shift+F** (Mac: **Cmd+Shift+F**) keyboard shortcut.
+
+---
+
+## ⌨️ Universal Keyboard Shortcuts Reference
+
+| Shortcut | Action | Supported Platforms |
+|----------|--------|---------------------|
+| **Space** / **k** | Play / Pause video (no page scroll) | YouTube, Instagram, Facebook |
+| **&gt;** / **&lt;** (Shift + . / ,) | Speed Up / Slow Down playback (0.25x – 2.0x) | YouTube, Instagram, Facebook |
+| **← →** | Seek video (custom seconds from popup) | YouTube, Instagram, Facebook |
+| **Mouse Hover & Drag** | Interactive timeline scrubber bar | Instagram Reels |
+| **0** | Restart video from beginning (`0:00`) | YouTube, Instagram, Facebook |
+| **m** | Mute / Unmute active audio | YouTube, Instagram, Facebook |
+| **Shift + ↑ ↓** | Increase / Decrease volume | YouTube, Instagram, Facebook |
+| **c** | Toggle Captions / Subtitles | YouTube, Instagram, Facebook |
+| **a** | Open audio track menu / cycle tracks | YouTube Shorts |
+| **Ctrl+Shift+F** | Convert to standard video format | YouTube, Instagram, Facebook |
+
+---
 
 ## 📥 Installation
+
 ### Chrome Web Store
-[**Install Fix YT Shorts from the Chrome Web Store**](https://chromewebstore.google.com/detail/fix-yt-shorts-by-pramod-b/idpdcafoocepoaphmgbkkjadlddpoamc)
-### Manual installation:
+*(Update coming soon to the Chrome Web Store)*
+
+### Manual Installation (Developer Mode):
 1. Download or clone this repository
-2. Open Chrome/Edge/Brave/Opera → `chrome://extensions/`
-3. Enable **Developer mode**
+2. Open Chrome/Edge/Brave/Opera and navigate to `chrome://extensions/`
+3. Enable **Developer mode** in the top-right corner
 4. Click **Load unpacked**
-5. Select this folder
-6. Done! 🎉
+5. Select this folder (`fixytshorts-v1.7.1-full-project`)
+6. Done! 🎉 Enjoy full control across YouTube Shorts, Instagram Reels, and Facebook Reels.
 
-## 🆕 What's New in v1.7.1
-- **Robust Auto-Scroll Engine**: Completely fixed Auto-Scroll behavior. Now disables native video loop when active so HTML5 `ended` events fire reliably, incorporates 4-layer scroll and navigation fallbacks, resolves timing deadlocks, and ensures instant click response across button, icon, and label elements.
-- **Flawless Hands-Free Viewing**: Toggling Auto-Scroll ON mid-video keeps playback uninterrupted until the Short reaches completion, then smoothly auto-advances to the next video without premature jumps.
+---
 
-## 🆕 What's New in v1.7
-- **Big-Brand Icon Redesign**: Clean edge-to-edge silhouette, 100% transparent background, and zero container padding/box, featuring YouTube Shorts' signature vibrant red ribbon and precision engineering gear & play mark.
-- **Space Bar Play/Pause**: Pressing Space (or 'k') pauses and plays the YouTube Short just like YouTube videos while blocking browser page scrolling and accidental button triggers.
-- **Seamless Hands-Free Auto-Scroll**: Fixed Auto Scroll so enabling it mid-video allows the active Short to finish its full duration before advancing, with single-trigger loop handling.
+## 🆕 What's New in v2.0
+- **Reels Master Tri-Platform Support**: Unified control for **YouTube Shorts**, **Instagram Reels**, and **Facebook Reels** in a single powerful extension.
+- **Instagram Timeline Scrubber**: Interactive progress bar appears on hover over Instagram Reels, allowing mouse seeking even without signing in.
+- **Left-Side Auto-Scroll Button**: Pixel-perfect, native-styled Auto-Scroll button positioned on the left side of active Reels on Instagram and Facebook.
+- **No Duplicate Buttons**: Clean single-button architecture eliminating multiple injections on Facebook.
+- **Tri-Brand Icon Design**: Brand new high-res master icon embodying YouTube Red, Instagram Sunset Gradient, and Facebook Royal Blue.
 
-## 🆕 What's New in v1.6
-- **Hands-Free Auto-Scroll**: Dedicated on-screen toggle button above Convert button. Seamlessly moves to next video upon finish or immediately when enabled.
-- **Speed Adjustment**: `>` and `<` hotkeys to fine-tune playback rate with center HUD indicator.
-- **Synced Popup & On-Screen UI**: Cleaned popup with complete shortcut guide.
-
-## 🆕 What's New in v1.5
-- **Native Action Button Integration**: Completely aligned the Convert button with YouTube's authentic Shorts action button architecture. It now inherits YouTube's genuine 3D specular rim light, ambient wash layers, and smooth non-scaling hover transitions.
-- **Symmetric Convert Icon**: Replaced the previous blocky tile icon with YouTube's clean, symmetric video convert cycle icon (`viewBox="0 0 24 24"`).
-- **Pixel-Perfect Spacing**: Calibrated action bar vertical spacing to exactly 9px, ensuring consistent alignment with native Like, Comment, and Share buttons.
-- **Strict Trusted Types Compliance**: Refactored DOM injection to fully respect YouTube's Trusted Types policy without innerHTML violations.
-
-## 🆕 What's New in v1.4
-- **Full Keyboard Menu Navigation**: Audio Track and Caption menus now support arrow keys (`↑` / `↓`) and `Enter`, number keys (`1`–`9`), or quick cycling with `a` / `c` without requiring a mouse.
-- **Playback Protection**: Arrow navigation inside menus strictly traps keyboard events so the background Short never scrolls or changes video.
-- **Customizable Seek Duration**: Configure your preferred seek duration in the extension popup with instant sync.
-- **Clamped Seek Overlay**: Visual feedback is kept strictly inside the Shorts player viewport.
-- **Modern YouTube Action Button**: The on-screen Convert button matches YouTube's latest UI layout, typography, and contrast.
+---
 
 ## 🔧 Technical Details
 
 - **Manifest Version**: 3
-- **Permissions**: activeTab, storage, YouTube host permissions
-- **Works on**: All Chromium-based browsers, including but not limited to:
-  - Google Chrome
-  - Microsoft Edge
-  - Brave
-  - Opera
-  - Vivaldi
+- **Permissions**: `activeTab`, `storage`
+- **Host Permissions**:
+  - `https://www.youtube.com/*`
+  - `*://*.instagram.com/*`
+  - `*://*.facebook.com/*`
+- **Zero Remote Code**: 100% compliant with Chrome Web Store security and privacy standards.
 
 ## 👤 Author
 
 **Pramod Beema**  
-GitHub: [@pramodbeema](https://github.com/pramodbeema)
-
-## 📝 License
-
-MIT License - feel free to use and modify!
-
----
-
-⭐ If you find this extension useful, please star this repository!
+- GitHub: [https://github.com/pramodbeema](https://github.com/pramodbeema)
+- Email: bp.beema@gmail.com

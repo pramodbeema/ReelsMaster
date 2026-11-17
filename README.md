@@ -1,4 +1,4 @@
-# Fix YT Shorts (v1.7)
+# Fix YT Shorts (v1.7.1)
 
 **A powerful Chrome extension to fix and enhance the YouTube Shorts experience with essential features: spacebar play/pause, hands-free auto-scroll, playback speed controls, audio navigation, seeking controls, caption toggle, restart from beginning, and video conversion.**
 
@@ -56,6 +56,10 @@ Press **'0'** to restart the current Short from the beginning (`0:00`), matching
 4. Click **Load unpacked**
 5. Select this folder
 6. Done! 🎉
+
+## 🆕 What's New in v1.7.1
+- **Robust Auto-Scroll Engine**: Completely fixed Auto-Scroll behavior. Now disables native video loop when active so HTML5 `ended` events fire reliably, incorporates 4-layer scroll and navigation fallbacks, resolves timing deadlocks, and ensures instant click response across button, icon, and label elements.
+- **Flawless Hands-Free Viewing**: Toggling Auto-Scroll ON mid-video keeps playback uninterrupted until the Short reaches completion, then smoothly auto-advances to the next video without premature jumps.
 
 ## 🆕 What's New in v1.7
 - **Big-Brand Icon Redesign**: Clean edge-to-edge silhouette, 100% transparent background, and zero container padding/box, featuring YouTube Shorts' signature vibrant red ribbon and precision engineering gear & play mark.

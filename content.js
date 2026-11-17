@@ -50,6 +50,9 @@
                 }
                 if (changes.autoScroll !== undefined) {
                     autoScrollEnabled = Boolean(changes.autoScroll.newValue);
+                    document.querySelectorAll('#shorts-autoscroll-wrapper').forEach(w => updateAutoScrollButtonState(w));
+                    const v = getActiveVideo();
+                    if (v) syncVideoLoopState(v);
                 }
             }
         });
@@ -423,6 +426,7 @@
         if (video) {
             video.currentTime = 0;
             hasScrolledForCurrentVideo = false;
+            lastTimeRecorded = 0;
             if (video.paused) {
                 video.play().catch(() => {});
             }
@@ -589,37 +593,137 @@
     // ========================================
     // FEATURE 8: AUTO-SCROLL (HANDS-FREE MODE)
     // ========================================
-    function scrollToNextShort() {
-        if (!isShorts() || !autoScrollEnabled) return;
-        const nextButton = document.querySelector(
-            '#navigation-button-down button, ' +
-            'ytd-shorts [aria-label*="Next video" i], ' +
-            'button[aria-label*="Next video" i]'
-        );
-        if (nextButton) {
-            nextButton.click();
-            return;
-        }
-
-        // Fallback: keyboard down dispatch
-        window.dispatchEvent(new KeyboardEvent('keydown', {
-            key: 'ArrowDown',
-            code: 'ArrowDown',
-            keyCode: 40,
-            which: 40,
-            bubbles: true,
-            cancelable: true
-        }));
-    }
 
     let lastVideoAttached = null;
     let hasScrolledForCurrentVideo = false;
     let lastTimeRecorded = 0;
+    let lastScrollTriggerTimestamp = 0;
+
+    function scrollToNextShort() {
+        if (!isShorts() || !autoScrollEnabled) return;
+
+        // Layer 1: Query YouTube's native Next Video button across all known selector variants
+        const nextBtnSelectors = [
+            '#navigation-button-down button',
+            '.navigation-container #navigation-button-down button',
+            '#navigation-button-down yt-button-shape button',
+            'ytd-shorts #navigation-button-down button',
+            '#navigation-button-down',
+            'ytd-shorts [aria-label*="Next video" i]',
+            'button[aria-label*="Next video" i]',
+            'button[aria-label*="Next" i]',
+            'button[aria-label*="Siguiente" i]',
+            'button[aria-label*="Suivant" i]',
+            'button[aria-label*="Weiter" i]',
+            'button[aria-label*="अगला" i]'
+        ];
+
+        let clicked = false;
+        for (const sel of nextBtnSelectors) {
+            const btn = document.querySelector(sel);
+            if (btn && btn.offsetParent !== null && typeof btn.click === 'function') {
+                btn.click();
+                clicked = true;
+                break;
+            }
+        }
+
+        // Layer 2: Smooth scroll the next reel into view if active reel is known
+        const activeReel = getActiveReel();
+        if (activeReel) {
+            const nextReel = activeReel.nextElementSibling;
+            if (nextReel && typeof nextReel.scrollIntoView === 'function') {
+                nextReel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Layer 3: Container or window scroll fallback
+        const shortsContainer = document.querySelector('#shorts-container') ||
+                                document.querySelector('ytd-shorts') ||
+                                document.querySelector('#shorts-inner-container');
+        if (shortsContainer && typeof shortsContainer.scrollBy === 'function') {
+            shortsContainer.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        } else {
+            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+
+        // Layer 4: Keyboard event dispatch on document and window
+        ['ArrowDown', 'PageDown'].forEach((keyName) => {
+            const keyCode = keyName === 'ArrowDown' ? 40 : 34;
+            const evt = new KeyboardEvent('keydown', {
+                key: keyName,
+                code: keyName,
+                keyCode: keyCode,
+                which: keyCode,
+                bubbles: true,
+                cancelable: true,
+                composed: true,
+                view: window
+            });
+            document.dispatchEvent(evt);
+            if (document.body) document.body.dispatchEvent(evt);
+            window.dispatchEvent(evt);
+        });
+    }
 
     function triggerAutoScrollNext() {
-        if (!isShorts() || !autoScrollEnabled || hasScrolledForCurrentVideo) return;
+        if (!isShorts() || !autoScrollEnabled) return;
+        const now = Date.now();
+        // Prevent multiple rapid triggers within 1.5s
+        if (now - lastScrollTriggerTimestamp < 1500) return;
+        if (hasScrolledForCurrentVideo && (now - lastScrollTriggerTimestamp < 3500)) return;
+
+        lastScrollTriggerTimestamp = now;
         hasScrolledForCurrentVideo = true;
         scrollToNextShort();
+    }
+
+    function syncVideoLoopState(video) {
+        if (!video) return;
+        // When Auto-Scroll is enabled, disable native looping so 'ended' fires naturally
+        // When disabled, keep YouTube's normal looping
+        if (autoScrollEnabled) {
+            if (video.loop) video.loop = false;
+        } else {
+            if (!video.loop) video.loop = true;
+        }
+    }
+
+    function setupVideoAutoScrollListeners(video) {
+        if (!video || video.dataset.fytAutoScrollAttached === 'true') return;
+        video.dataset.fytAutoScrollAttached = 'true';
+
+        syncVideoLoopState(video);
+
+        video.addEventListener('ended', () => {
+            if (autoScrollEnabled) {
+                triggerAutoScrollNext();
+            }
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (!autoScrollEnabled) {
+                lastTimeRecorded = video.currentTime;
+                return;
+            }
+
+            syncVideoLoopState(video);
+
+            const duration = video.duration;
+            const currentTime = video.currentTime;
+
+            if (duration && isFinite(duration) && duration > 0.8) {
+                // Video reached within 0.25s of end
+                if (currentTime >= duration - 0.25) {
+                    triggerAutoScrollNext();
+                }
+                // Fallback loop detection: currentTime jumped back from near end to near start
+                else if (lastTimeRecorded > (duration - 1.2) && currentTime < 0.6) {
+                    triggerAutoScrollNext();
+                }
+            }
+            lastTimeRecorded = currentTime;
+        });
     }
 
     function checkAutoScroll() {
@@ -627,39 +731,30 @@
         const video = getActiveVideo();
         if (!video) return;
 
+        syncVideoLoopState(video);
+
         if (video !== lastVideoAttached) {
             lastVideoAttached = video;
             hasScrolledForCurrentVideo = false;
             lastTimeRecorded = video.currentTime || 0;
+            setupVideoAutoScrollListeners(video);
+        } else {
+            setupVideoAutoScrollListeners(video);
+        }
 
-            // Attach end-of-video listener to scroll when finished
-            video.addEventListener('ended', () => {
-                if (autoScrollEnabled) triggerAutoScrollNext();
-            });
-
-            // Monitor playback time to trigger right at completion without premature skipping
-            video.addEventListener('timeupdate', () => {
-                if (!autoScrollEnabled || hasScrolledForCurrentVideo) {
-                    lastTimeRecorded = video.currentTime;
-                    return;
+        // Active safety check every cycle: if video has ended or is near end
+        if (autoScrollEnabled && !hasScrolledForCurrentVideo) {
+            if (video.ended) {
+                triggerAutoScrollNext();
+            } else if (video.duration && isFinite(video.duration) && video.duration > 0.8) {
+                if (video.currentTime >= video.duration - 0.2) {
+                    triggerAutoScrollNext();
                 }
-                const duration = video.duration;
-                const currentTime = video.currentTime;
-                if (duration && isFinite(duration) && duration > 1) {
-                    // Trigger within final 0.25s of the Short duration
-                    if (currentTime >= duration - 0.25) {
-                        triggerAutoScrollNext();
-                    } else if (lastTimeRecorded > duration - 0.8 && currentTime < 0.5) {
-                        // Video looped back to beginning
-                        triggerAutoScrollNext();
-                    }
-                }
-                lastTimeRecorded = currentTime;
-            });
+            }
         }
     }
 
-    setInterval(checkAutoScroll, 500);
+    setInterval(checkAutoScroll, 200);
 
     const seekStyle = document.createElement('style');
     seekStyle.textContent = `
@@ -718,7 +813,6 @@
                     svg.appendChild(path);
                     iconWrapper.appendChild(svg);
                 }
-                button.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); onClickFn(wrapper, button); });
             }
 
             // Update label
@@ -755,7 +849,6 @@
             svg.appendChild(path);
             iconDiv.appendChild(svg);
             button.appendChild(iconDiv);
-            button.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); onClickFn(wrapper, button); });
 
             const label = document.createElement('div');
             label.className = 'label style-scope ytd-reel-player-overlay-renderer';
@@ -763,6 +856,23 @@
             wrapper.appendChild(button);
             wrapper.appendChild(label);
         }
+
+        const btn = wrapper.querySelector('button') || wrapper;
+        const clickHandler = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+            onClickFn(wrapper, btn);
+        };
+        btn.addEventListener('click', clickHandler);
+        wrapper.addEventListener('click', (e) => {
+            if (!btn.contains(e.target)) {
+                clickHandler(e);
+            }
+        });
+
         return wrapper;
     }
 
@@ -777,12 +887,37 @@
 
     function updateAutoScrollButtonState(wrapper) {
         if (!wrapper) return;
+        const btn = wrapper.querySelector('button') || wrapper;
         if (autoScrollEnabled) {
             wrapper.classList.add('fyt-autoscroll-active');
             wrapper.setAttribute('data-autoscroll', 'on');
+            if (btn) btn.setAttribute('aria-pressed', 'true');
         } else {
             wrapper.classList.remove('fyt-autoscroll-active');
             wrapper.setAttribute('data-autoscroll', 'off');
+            if (btn) btn.setAttribute('aria-pressed', 'false');
+        }
+    }
+
+    function toggleAutoScroll() {
+        autoScrollEnabled = !autoScrollEnabled;
+        document.querySelectorAll('#shorts-autoscroll-wrapper').forEach(w => updateAutoScrollButtonState(w));
+
+        // Persist setting
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+            chrome.storage.local.set({ autoScroll: autoScrollEnabled });
+        } else {
+            localStorage.setItem('autoScroll', autoScrollEnabled ? 'true' : 'false');
+        }
+
+        const video = getActiveVideo();
+        if (video) syncVideoLoopState(video);
+
+        if (autoScrollEnabled) {
+            hasScrolledForCurrentVideo = false;
+            showCenterHUD('\uD83D\uDD01 Auto-Scroll ON');
+        } else {
+            showCenterHUD('\u23F9 Auto-Scroll OFF');
         }
     }
 
@@ -792,7 +927,11 @@
         const activeShortsPlayer = getActiveReel();
         if (!activeShortsPlayer) return;
 
-        if (activeShortsPlayer.querySelector('#shorts-autoscroll-wrapper')) return;
+        if (activeShortsPlayer.querySelector('#shorts-autoscroll-wrapper')) {
+            const existing = activeShortsPlayer.querySelector('#shorts-autoscroll-wrapper');
+            updateAutoScrollButtonState(existing);
+            return;
+        }
 
         const likeRenderer = activeShortsPlayer.querySelector('like-button-view-model, ytd-like-button-renderer');
         let actionPanel = likeRenderer ? likeRenderer.closest('#actions, #actions-inner, [id*="action"]') : null;
@@ -820,21 +959,8 @@
             'Toggle Auto-Scroll',
             AUTO_SCROLL_SVG,
             'Auto Scroll',
-            (wrapperEl) => {
-                autoScrollEnabled = !autoScrollEnabled;
-                updateAutoScrollButtonState(wrapperEl);
-                // Persist
-                if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-                    chrome.storage.local.set({ autoScroll: autoScrollEnabled });
-                } else {
-                    localStorage.setItem('autoScroll', autoScrollEnabled ? 'true' : 'false');
-                }
-                if (autoScrollEnabled) {
-                    showCenterHUD('\uD83D\uDD01 Auto-Scroll ON');
-                    // Does NOT prematurely skip current video — lets active Short complete its duration seamlessly
-                } else {
-                    showCenterHUD('\u23F9 Auto-Scroll OFF');
-                }
+            () => {
+                toggleAutoScroll();
             }
         );
 
@@ -1156,8 +1282,10 @@
         if (url !== lastUrl) {
             lastUrl = url;
             hasScrolledForCurrentVideo = false;
-            createConvertButton();
-            createAutoScrollButton();
+            lastTimeRecorded = 0;
+            lastVideoAttached = null;
+            createBothButtons();
+            checkAutoScroll();
         }
     }).observe(document, { subtree: true, childList: true });
 
@@ -1167,6 +1295,7 @@
             mutations.forEach((mutation) => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'is-active') {
                     createConvertButton();
+                    createAutoScrollButton();
                 }
             });
         });
@@ -1182,15 +1311,11 @@
     function createBothButtons() {
         createConvertButton();
         createAutoScrollButton();
-        // Re-sync auto-scroll button visual state after navigation
-        const activeReel = getActiveReel();
-        if (activeReel) {
-            const asw = activeReel.querySelector('#shorts-autoscroll-wrapper');
-            updateAutoScrollButtonState(asw);
-        }
+        // Re-sync all auto-scroll button visual states across the page
+        document.querySelectorAll('#shorts-autoscroll-wrapper').forEach(w => updateAutoScrollButtonState(w));
     }
 
     setInterval(createBothButtons, 500);
 
-    console.log('Fix YT Shorts by Pramod Beema - All features active (v1.7)!');
+    console.log('Fix YT Shorts by Pramod Beema - All features active (v1.7.1)!');
 })();

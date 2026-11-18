@@ -1,3 +1,4 @@
-// Animations are handled in CSS for now.
-// Can add interactive elements here if needed.
-console.log("Welcome to Fix YT Shorts!");
+// Reels Master - Welcome Page Initialization
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Welcome to Reels Master v2.1!');
+});

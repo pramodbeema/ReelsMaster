@@ -24,8 +24,8 @@ header {
     width: 36px;
     height: 36px;
     margin-right: 12px;
-    border-radius: 9px;
-    box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+    object-fit: contain;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
 }
 
 h1 {
@@ -190,7 +190,10 @@ h1 {
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #333;
     transition: .3s;
 }
@@ -206,11 +209,11 @@ h1 {
     transition: .3s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background: linear-gradient(135deg, #10B981, #059669);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(16px);
 }
 

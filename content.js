@@ -1324,7 +1324,7 @@ if (window.location.hostname.includes('youtube.com')) {
 
     setInterval(createBothButtons, 500);
 
-    console.log('Fix YT Shorts by Pramod Beema - All features active (v1.7.1)!');
+    console.log('Reels Master - All features active (v2.1)!');
 })();
 
 } else {
@@ -1479,7 +1479,8 @@ if (window.location.hostname.includes('youtube.com')) {
         );
     }
 
-    const AUTO_SVG_PATH = 'M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z';
+    // Standardized intuitive repeat auto-advance icon matching YouTube Shorts
+    const AUTO_SVG_PATH = 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z';
 
     // --- Active Video Resolver ---
     function getActiveVideo() {
@@ -1546,7 +1547,7 @@ if (window.location.hostname.includes('youtube.com')) {
 
             const label = document.createElement('span');
             label.className = 'rm-btn-label';
-            label.textContent = 'Auto';
+            label.textContent = 'Auto scroll';
 
             btn.appendChild(circle);
             btn.appendChild(label);
@@ -1753,7 +1754,7 @@ if (window.location.hostname.includes('youtube.com')) {
 
             const label = document.createElement('span');
             label.className = 'rm-btn-label';
-            label.textContent = 'Auto';
+            label.textContent = 'Auto scroll';
 
             btn.appendChild(circle);
             btn.appendChild(label);

@@ -1,9 +1,9 @@
-# Reviewer Instructions for Reels Master (v2.0)
+# Reviewer Instructions for Reels Master (v2.1)
 
 Test on YouTube Shorts (https://www.youtube.com/shorts/), Instagram Reels (https://www.instagram.com/reels/), or Facebook Reels (https://www.facebook.com/reel/):
 
 • Play/Pause: Press Space (or K) to pause and play without page scrolling.
-• Auto-Scroll: Click the "Auto" button (positioned on the left of active Reels on Instagram & Facebook, and in the action sidebar for YouTube Shorts). When the video ends, it automatically advances to the next video.
+• Auto-Scroll: Click the "Auto scroll" button (positioned on the left of active Reels on Instagram & Facebook, and in the action sidebar for YouTube Shorts). When the video ends, it automatically advances to the next video.
 • Instagram Timeline Scrubber: Hover mouse over any Instagram Reel to see the progress bar; click or drag to seek using the mouse.
 • Speed: Press > / < (or Shift + . / ,) to change playback speed (0.25x to 2.0x).
 • Seek: Press ← / → to seek backward or forward. Seek duration (2s, 5s, 10s, 15s) can be changed in the popup.

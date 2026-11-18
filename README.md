@@ -1,4 +1,4 @@
-# Reels Master (v2.0)
+# Reels Master (v2.1)
 
 **The all-in-one desktop extension for YouTube Shorts, Instagram Reels, and Facebook Reels. Control video playback with essential shortcuts: spacebar play/pause, hands-free auto-scroll, interactive Instagram timeline scrubber, playback speed controls, customizable seeking, audio navigation, captions, and video conversion.**
 
@@ -12,8 +12,8 @@ Created by **Pramod Beema**
 Press **Space** (or **'k'**) to pause and play YouTube Shorts, Instagram Reels, and Facebook Reels just like standard desktop video players. Safely suppresses unwanted browser page scrolling and blocks accidental button clicks.
 
 ### 2. 🔁 Hands-Free Auto-Scroll (All 3 Platforms)
-- **Instagram & Facebook**: A clean on-screen **Auto** button is positioned on the **left side of the video being played**. When the current Reel finishes, it automatically advances to the next Reel without requiring any mouse clicks.
-- **YouTube Shorts**: Auto button integrated natively in the action sidebar above Convert.
+- **Instagram & Facebook**: A clean on-screen **Auto scroll** button is positioned on the **left side of the video being played**. When the current Reel finishes, it automatically advances to the next Reel without requiring any mouse clicks.
+- **YouTube Shorts**: Auto scroll button integrated natively in the action sidebar above Convert.
 - Includes smart video loop detection for Meta's repeating video playback engine.
 
 ### 3. ⏱️ Interactive Instagram Timeline Scrubber (Native Single Bottom Line)
@@ -69,17 +69,16 @@ Convert YouTube Shorts to regular video format with the on-screen Convert button
 2. Open Chrome/Edge/Brave/Opera and navigate to `chrome://extensions/`
 3. Enable **Developer mode** in the top-right corner
 4. Click **Load unpacked**
-5. Select this folder (`fixytshorts-v1.7.1-full-project`)
+5. Select this folder
 6. Done! 🎉 Enjoy full control across YouTube Shorts, Instagram Reels, and Facebook Reels.
 
 ---
 
-## 🆕 What's New in v2.0
-- **Reels Master Tri-Platform Support**: Unified control for **YouTube Shorts**, **Instagram Reels**, and **Facebook Reels** in a single powerful extension.
-- **Instagram Timeline Scrubber**: Interactive progress bar appears on hover over Instagram Reels, allowing mouse seeking even without signing in.
-- **Left-Side Auto-Scroll Button**: Pixel-perfect, native-styled Auto-Scroll button positioned on the left side of active Reels on Instagram and Facebook.
-- **No Duplicate Buttons**: Clean single-button architecture eliminating multiple injections on Facebook.
-- **Tri-Brand Icon Design**: Brand new high-res master icon embodying YouTube Red, Instagram Sunset Gradient, and Facebook Royal Blue.
+## 🆕 What's New in v2.1
+- **Unified Identity**: Streamlined name to **Reels Master** with all-new high-resolution brand icon artwork across all platforms and promo assets.
+- **Standardized Auto Scroll**: Intuitive auto-advance loop icon unified across YouTube Shorts, Instagram Reels, and Facebook Reels with consistent "Auto scroll" labeling.
+- **Redesigned Welcome Page**: Elegant, minimalistic onboarding page designed to fit cleanly inside a single screen with zero vertical or horizontal scrolling.
+- **GitHub Repository**: Project repository configured as [ReelsMaster](https://github.com/pramodbeema/ReelsMaster).
 
 ---
 
@@ -96,5 +95,5 @@ Convert YouTube Shorts to regular video format with the on-screen Convert button
 ## 👤 Author
 
 **Pramod Beema**  
-- GitHub: [https://github.com/pramodbeema](https://github.com/pramodbeema)
+- GitHub: [https://github.com/pramodbeema/ReelsMaster](https://github.com/pramodbeema/ReelsMaster)
 - Email: bp.beema@gmail.com

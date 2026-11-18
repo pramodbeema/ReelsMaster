@@ -1,10 +1,10 @@
-# Reels Master by Pramod Beema
+# Reels Master
 
 🚀 **Take full control of YouTube Shorts, Instagram Reels, and Facebook Reels on your desktop.**
 
 Short-form videos on YouTube, Instagram, and Facebook are built for mobile swiping, leaving desktop browser users without essential video player controls like spacebar play/pause, playback speed, timeline scrubbing, seeking, and hands-free watching.
 
-**Reels Master** (v2.0) brings a full suite of desktop keyboard shortcuts, customizable seeking, speed controls, hands-free auto-scrolling, an interactive Instagram timeline scrubber, and on-screen controls directly to YouTube, Instagram, and Facebook — seamlessly integrated into modern dark interfaces.
+**Reels Master** (v2.1) brings a full suite of desktop keyboard shortcuts, customizable seeking, speed controls, hands-free auto-scrolling, an interactive Instagram timeline scrubber, and on-screen controls directly to YouTube, Instagram, and Facebook — seamlessly integrated into modern dark interfaces.
 
 ---
 
@@ -14,7 +14,7 @@ Short-form videos on YouTube, Instagram, and Facebook are built for mobile swipi
 Press **`Space`** (or **`K`**) to toggle pause and play on YouTube Shorts, Instagram Reels, and Facebook Reels — just like desktop video players. Safely prevents unwanted browser page scrolling and blocks unintended clicks on focused buttons.
 
 ### 🔁 Hands-Free Auto-Scroll
-Binge short-form videos effortlessly! Click the on-screen **`Auto`** button (positioned cleanly on the left side of Reels on Instagram and Facebook, and in the action sidebar for Shorts). When a video finishes, the extension automatically advances to the next one with smart loop detection for Meta's repeating video engine.
+Binge short-form videos effortlessly! Click the on-screen **`Auto scroll`** button (positioned cleanly on the left side of Reels on Instagram and Facebook, and in the action sidebar for Shorts). When a video finishes, the extension automatically advances to the next one with smart loop detection for Meta's repeating video engine.
 
 ### ⏱️ Interactive Instagram Timeline Scrubber
 Hover your mouse over any Instagram Reel to reveal an interactive time bar with a live progress bar, thumb handle, and timestamp (`0:14 / 0:48`). Click or drag anywhere along the track to seek using your mouse — especially useful when viewing Reels while logged out!
